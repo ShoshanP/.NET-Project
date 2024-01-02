@@ -18,9 +18,9 @@ namespace Work.Service
             _employerRepository = employerRepository;
         }
 
-        public void Add(Employer employer)
+        public Employer Add(Employer employer)
         {
-            _employerRepository.Add(employer);
+           return _employerRepository.Add(employer);
         }
 
         public void DeleteById(int id)
@@ -38,9 +38,9 @@ namespace Work.Service
             return _employerRepository.GetById(id);
         }
 
-        public void Update(Employer employer)
+        public Employer Update(Employer employer)
         {
-            _employerRepository.Update(employer);
+           return _employerRepository.Update(employer);
         }
     }
 }

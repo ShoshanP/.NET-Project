@@ -32,16 +32,16 @@ namespace WorkAPI.Controllers
 
         // POST api/<EmployerController>
         [HttpPost]
-        public void Post([FromBody] Employer employer)
+        public Employer Post([FromBody] Employer employer)
         {
-            _employerService.Add(employer);
+          return  _employerService.Add(employer);
         }
 
         // PUT api/<EmployerController>/5
         [HttpPut("{id}")]
-        public void Put( [FromBody] Employer employer)
+        public Employer Put( [FromBody] Employer employer)
         {
-            _employerService.Update(employer);
+           return _employerService.Update(employer);
         }
 
         // DELETE api/<EmployerController>/5

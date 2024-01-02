@@ -36,7 +36,7 @@ namespace Work.data.Repositories
             return _context.Employers;
         }
 
-        public void Update(Employer employer)
+        public Employer Update(Employer employer)
         {
             Employer e = _context.Employers.FirstOrDefault(e => e.Id == employer.Id);
             if (e != null)
@@ -49,11 +49,15 @@ namespace Work.data.Repositories
             }
             else
                 _context.Employers.Add(employer);
+            _context.SaveChanges();
+            return employer;
         }
 
-        public void Add(Employer employer)
+        public Employer Add(Employer employer)
         {
             _context.Employers.Add(employer);
+            _context.SaveChanges();
+            return employer;
         }
     }
 }

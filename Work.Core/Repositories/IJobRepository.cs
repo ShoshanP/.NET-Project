@@ -14,8 +14,8 @@ namespace Work.Core.Repositories
         Job GetById(int id);
         
         void DeleteById(int id);
-        void Update(Job job);
+        Job Update(Job job);
 
-        void Add(Job job);
+        Job Add(Job job);
     }
 }

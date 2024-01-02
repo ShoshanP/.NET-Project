@@ -19,9 +19,10 @@ namespace Work.Service
             _jobRepository = jobRepository;
         }
 
-        public void Add(Job job)
+        public Job Add(Job job)
         {
-            _jobRepository.Add(job);
+           return _jobRepository.Add(job);
+            
         }
 
         public void DeleteById(int id)
@@ -39,9 +40,9 @@ namespace Work.Service
             return _jobRepository.GetById(id);
         }
 
-        public void Update(Job job)
+        public Job Update(Job job)
         {
-            _jobRepository.Update(job);
+           return _jobRepository.Update(job);
         }
     }
 }

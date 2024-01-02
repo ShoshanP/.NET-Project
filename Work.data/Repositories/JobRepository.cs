@@ -17,9 +17,11 @@ namespace Work.data.Repositories
             _context = context;
         }
 
-        public void Add(Job job)
+        public Job Add(Job job)
         {
            _context.Jobs.Add(job);
+            _context.SaveChanges();
+            return job;
         }
 
         public void DeleteById(int id)
@@ -43,7 +45,7 @@ namespace Work.data.Repositories
 
        
 
-        public void Update(Job job)
+        public Job Update(Job job)
         {
             Job j= _context.Jobs.FirstOrDefault(j=> j.Id==job.Id);
             if(j!=null)
@@ -54,6 +56,8 @@ namespace Work.data.Repositories
             }
             else
                 _context.Jobs.Add(job);
+            _context.SaveChanges();
+            return job;
         }
     }
 }

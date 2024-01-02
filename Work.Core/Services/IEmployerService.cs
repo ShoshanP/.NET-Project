@@ -12,10 +12,10 @@ namespace Work.Core.Services
     {
         DbSet<Employer> GetAll();
         Employer GetById(int id);
-        void Update(Employer employer);
+        Employer Update(Employer employer);
         void DeleteById(int id);
 
-        void Add(Employer employer);
+        Employer Add(Employer employer);
 
     }
 }

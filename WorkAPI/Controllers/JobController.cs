@@ -33,16 +33,16 @@ namespace WorkAPI.Controllers
 
         // POST api/<JobController>
         [HttpPost]
-        public void Post([FromBody] Job job)
-        {
-            _jobService.Update(job);
+        public Job Post([FromBody] Job job)
+        { 
+            return _jobService.Add(job);
         }
 
         // PUT api/<JobController>/5
         [HttpPut("{id}")]
-        public void Put( [FromBody] Job job)
+        public Job Put( [FromBody] Job job)
         {
-            _jobService.Add(job);
+           return _jobService.Update(job);
         }
 
         // DELETE api/<JobController>/5
