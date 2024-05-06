@@ -17,12 +17,13 @@ namespace Work.data.Repositories
             _context = dataContext;
         }
 
-        public void DeleteById(int id)
+        public async Task DeleteByIdAsync(int id)
         {
             Employee e = _context.Employees.FirstOrDefault(e => e.Id == id);
             if (e != null)
             {
                 _context.Employees.Remove(e);
+               await _context.SaveChangesAsync();
             }
         }
 
@@ -36,7 +37,7 @@ namespace Work.data.Repositories
             return _context.Employees;
         }
 
-        public void Update(Employee employee)
+        public async Task UpdateAsync(Employee employee)
         {
             Employee e = _context.Employees.FirstOrDefault(e => e.Id == employee.Id);
             if (e != null)
@@ -50,11 +51,13 @@ namespace Work.data.Repositories
             }
             else
                 _context.Employees.Add(employee);
+           await _context.SaveChangesAsync();
         }
 
-        public void Add(Employee employee)
+        public async Task AddAsync(Employee employee)
         {
             _context.Employees.Add(employee);
+            await _context.SaveChangesAsync();
         }
     }
 }

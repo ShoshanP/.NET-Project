@@ -19,15 +19,15 @@ namespace Work.Service
             _jobRepository = jobRepository;
         }
 
-        public Job Add(Job job)
+        public async Task< Job> AddAsync(Job job)
         {
-           return _jobRepository.Add(job);
+           return await _jobRepository.AddAsync(job);
             
         }
 
-        public void DeleteById(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            _jobRepository.DeleteById(id);
+            await _jobRepository.DeleteByIdAsync(id);
         }
 
         public DbSet<Job> GetAll()
@@ -40,9 +40,9 @@ namespace Work.Service
             return _jobRepository.GetById(id);
         }
 
-        public Job Update(Job job)
+        public async Task<Job> UpdateAsync(Job job)
         {
-           return _jobRepository.Update(job);
+           return await _jobRepository.UpdateAsync(job);
         }
     }
 }

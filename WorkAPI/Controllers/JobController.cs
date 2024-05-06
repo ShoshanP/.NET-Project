@@ -33,23 +33,23 @@ namespace WorkAPI.Controllers
 
         // POST api/<JobController>
         [HttpPost]
-        public Job Post([FromBody] Job job)
+        public async Task<Job> Post([FromBody] Job job)
         { 
-            return _jobService.Add(job);
+            return await _jobService.AddAsync(job);
         }
 
         // PUT api/<JobController>/5
         [HttpPut("{id}")]
-        public Job Put( [FromBody] Job job)
+        public async Task<Job> Put( [FromBody] Job job)
         {
-           return _jobService.Update(job);
+           return await _jobService.UpdateAsync(job);
         }
 
         // DELETE api/<JobController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _jobService.DeleteById(id);
+           await _jobService.DeleteByIdAsync(id);
         }
     }
 }

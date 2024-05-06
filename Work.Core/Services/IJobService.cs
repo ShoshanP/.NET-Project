@@ -12,10 +12,10 @@ namespace Work.Core.Services
     {
         DbSet<Job> GetAll();
         Job GetById(int id);
-       Job Update(Job job);
-        void DeleteById(int id);
+       Task<Job> UpdateAsync(Job job);
+        Task DeleteByIdAsync(int id);
 
-        Job Add(Job job);
+        Task<Job> AddAsync(Job job);
         
     }
 }

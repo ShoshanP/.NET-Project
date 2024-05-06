@@ -12,10 +12,8 @@ namespace Work.Core.Services
     {
         DbSet<Employee> GetAll();
         Employee GetById(int id);
-        void Update(Employee employee);
-        void DeleteById(int id);
-
-        void Add(Employee employee);
-
+        Task UpdateAsync(Employee employee);
+        Task DeleteByIdAsync(int id);
+        Task AddAsync(Employee employee);
     }
 }

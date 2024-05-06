@@ -14,9 +14,9 @@ namespace Work.Core.Repositories
 
         Employee GetById(int id);
 
-        void DeleteById(int id);
-        void Update(Employee employee);
+        Task DeleteByIdAsync(int id);
+        Task UpdateAsync(Employee employee);
 
-        void Add(Employee employee);
+        Task AddAsync(Employee employee);
     }
 }

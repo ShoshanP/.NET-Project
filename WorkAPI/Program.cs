@@ -1,8 +1,10 @@
+using Work.Core.Mapping;
 using Work.Core.Repositories;
 using Work.Core.Services;
 using Work.data;
 using Work.data.Repositories;
 using Work.Service;
+using WorkAPI.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +23,7 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 builder.Services.AddDbContext<DataContext>();
 //builder.Services.AddSingleton<DataContext>(); 
-
+builder.Services.AddAutoMapper(typeof(MappingProfile),typeof(ApiMappingProfile));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -32,23 +32,23 @@ namespace WorkAPI.Controllers
 
         // POST api/<EmployerController>
         [HttpPost]
-        public Employer Post([FromBody] Employer employer)
+        public async Task< Employer> Post([FromBody] Employer employer)
         {
-          return  _employerService.Add(employer);
+          return await _employerService.AddAsync(employer);
         }
 
         // PUT api/<EmployerController>/5
         [HttpPut("{id}")]
-        public Employer Put( [FromBody] Employer employer)
+        public async Task<Employer> Put( [FromBody] Employer employer)
         {
-           return _employerService.Update(employer);
+           return await _employerService.UpdateAsync(employer);
         }
 
         // DELETE api/<EmployerController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public  async void Delete(int id)
         {
-            _employerService.DeleteById(id);
+           await _employerService.DeleteByIdAsync(id);
         }
     }
 }

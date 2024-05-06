@@ -17,14 +17,14 @@ namespace Work.Service
         {
             _employeeRepository = employeeRepository;
         }
-        public void Add(Employee employee)
+        public async Task AddAsync(Employee employee)
         {
-            _employeeRepository.Add(employee);
+           await _employeeRepository.AddAsync(employee);
         }
 
-        public void DeleteById(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            _employeeRepository.DeleteById(id);
+           await _employeeRepository.DeleteByIdAsync(id);
         }
 
         public DbSet<Employee> GetAll()
@@ -37,9 +37,9 @@ namespace Work.Service
            return _employeeRepository.GetById(id);
         }
 
-        public void Update(Employee employee)
+        public async Task UpdateAsync(Employee employee)
         {
-           _employeeRepository.Update(employee);
+          await _employeeRepository.UpdateAsync(employee);
         }
     }
 }

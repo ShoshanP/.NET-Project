@@ -17,20 +17,21 @@ namespace Work.data.Repositories
             _context = context;
         }
 
-        public Job Add(Job job)
+        public async Task<Job> AddAsync(Job job)
         {
            _context.Jobs.Add(job);
-            _context.SaveChanges();
+           await _context.SaveChangesAsync();
             return job;
         }
 
-        public void DeleteById(int id)
+        public async Task DeleteByIdAsync(int id)
         {
             Job j=_context.Jobs.FirstOrDefault(x => x.Id == id);
             if (j != null)
             {
                 _context.Jobs.Remove(j);
             }
+           await _context.SaveChangesAsync();
         }
 
         public Job GetById(int id)
@@ -45,7 +46,7 @@ namespace Work.data.Repositories
 
        
 
-        public Job Update(Job job)
+        public async Task<Job> UpdateAsync(Job job)
         {
             Job j= _context.Jobs.FirstOrDefault(j=> j.Id==job.Id);
             if(j!=null)
@@ -56,7 +57,7 @@ namespace Work.data.Repositories
             }
             else
                 _context.Jobs.Add(job);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return job;
         }
     }

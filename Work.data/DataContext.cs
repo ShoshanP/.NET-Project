@@ -19,5 +19,14 @@ namespace Work.data
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=sample_db");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<JobOffer>().HasKey(jo => new
+            {
+                jo.JobId,
+                jo.EmployeeId
+            });
+        }
+
     }
 }

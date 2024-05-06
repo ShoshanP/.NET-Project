@@ -13,9 +13,9 @@ namespace Work.Core.Repositories
         DbSet<Job> GetList();
         Job GetById(int id);
         
-        void DeleteById(int id);
-        Job Update(Job job);
+        Task DeleteByIdAsync(int id);
+        Task<Job> UpdateAsync(Job job);
 
-        Job Add(Job job);
+        Task<Job> AddAsync(Job job);
     }
 }

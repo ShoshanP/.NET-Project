@@ -18,14 +18,14 @@ namespace Work.Service
             _employerRepository = employerRepository;
         }
 
-        public Employer Add(Employer employer)
+        public async Task<Employer> AddAsync(Employer employer)
         {
-           return _employerRepository.Add(employer);
+           return await _employerRepository.AddAsync(employer);
         }
 
-        public void DeleteById(int id)
+        public async Task DeleteByIdAsync(int id)
         {
-            _employerRepository.DeleteById(id);
+           await _employerRepository.DeleteByIdAsync(id);
         }
 
         public DbSet<Employer> GetAll()
@@ -38,9 +38,9 @@ namespace Work.Service
             return _employerRepository.GetById(id);
         }
 
-        public Employer Update(Employer employer)
+        public async Task<Employer> UpdateAsync(Employer employer)
         {
-           return _employerRepository.Update(employer);
+           return await _employerRepository.UpdateAsync(employer);
         }
     }
 }

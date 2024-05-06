@@ -12,10 +12,9 @@ namespace Work.Core.Repositories
     {
         DbSet<Employer> GetList();
         Employer GetById(int id);
-        Employer Update(Employer employer);
-
-        void DeleteById(int id);
-        Employer Add(Employer employer);
+        Task<Employer> UpdateAsync(Employer employer);
+        Task DeleteByIdAsync(int id);
+        Task<Employer> AddAsync(Employer employer);
 
     }
 }
